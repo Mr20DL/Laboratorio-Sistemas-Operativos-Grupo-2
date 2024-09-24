@@ -1,4 +1,4 @@
-/* Reads a 128 kB file into static data and "sorts" the bytes in
+/** Reads a 128 kB file into static data and "sorts" the bytes in
    it, using counting sort, a single-pass algorithm.  The sorted
    data is written back to the same file in-place. */
 
@@ -6,6 +6,8 @@
 #include <syscall.h>
 #include "tests/lib.h"
 #include "tests/main.h"
+
+const char *test_name = "child-sort";
 
 unsigned char buf[128 * 1024];
 size_t histogram[256];
@@ -18,7 +20,6 @@ main (int argc UNUSED, char *argv[])
   size_t size;
   size_t i;
 
-  test_name = "child-sort";
   quiet = true;
 
   CHECK ((handle = open (argv[1])) > 1, "open \"%s\"", argv[1]);

@@ -1,4 +1,4 @@
-/* Executes itself recursively to the depth indicated by the
+/** Executes itself recursively to the depth indicated by the
    first command-line argument. */
 
 #include <debug.h>
@@ -7,12 +7,12 @@
 #include <syscall.h>
 #include "tests/lib.h"
 
+const char *test_name = "multi-recurse";
+
 int
 main (int argc UNUSED, char *argv[]) 
 {
   int n = atoi (argv[1]);
-
-  test_name = "multi-recurse";
 
   msg ("begin %d", n);
   if (n != 0) 

@@ -1,4 +1,4 @@
-/* Child process run by rox-child and rox-multichild tests.
+/** Child process run by rox-child and rox-multichild tests.
    Opens and tries to write to its own executable, verifying that
    that is disallowed.
    Then recursively executes itself to the depth indicated by the
@@ -9,6 +9,8 @@
 #include <stdlib.h>
 #include <syscall.h>
 #include "tests/lib.h"
+
+const char *test_name = "child-rox";
 
 static void
 try_write (void) 
@@ -29,8 +31,6 @@ try_write (void)
 int
 main (int argc UNUSED, char *argv[]) 
 {
-  test_name = "child-rox";
-
   msg ("begin");
   try_write ();
 

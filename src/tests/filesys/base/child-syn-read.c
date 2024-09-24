@@ -1,4 +1,4 @@
-/* Child process for syn-read test.
+/** Child process for syn-read test.
    Reads the contents of a test file a byte at a time, in the
    hope that this will take long enough that we can get a
    significant amount of contention in the kernel file system
@@ -11,6 +11,8 @@
 #include "tests/lib.h"
 #include "tests/filesys/base/syn-read.h"
 
+const char *test_name = "child-syn-read";
+
 static char buf[BUF_SIZE];
 
 int
@@ -20,7 +22,6 @@ main (int argc, const char *argv[])
   int fd;
   size_t i;
 
-  test_name = "child-syn-read";
   quiet = true;
   
   CHECK (argc == 2, "argc must be 2, actually %d", argc);

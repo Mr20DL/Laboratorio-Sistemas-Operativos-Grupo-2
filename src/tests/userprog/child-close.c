@@ -1,4 +1,4 @@
-/* Child process run by multi-child-fd test.
+/** Child process run by multi-child-fd test.
 
    Attempts to close the file descriptor passed as the first
    command-line argument.  This is invalid, because file
@@ -13,11 +13,11 @@
 #include <syscall.h>
 #include "tests/lib.h"
 
+const char *test_name = "child-close";
+
 int
 main (int argc UNUSED, char *argv[]) 
 {
-  test_name = "child-close";
-
   msg ("begin");
   if (!isdigit (*argv[1]))
     fail ("bad command-line arguments");
